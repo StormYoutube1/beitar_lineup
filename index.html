@@ -247,7 +247,7 @@ header p { font-size: 14px; color: var(--muted); margin-top: 2px; }
 
 <script>
 var tg = (window.Telegram && window.Telegram.WebApp) ? window.Telegram.WebApp : null;
-var inTelegram = !!(tg && tg.initData);
+var inTelegram = !!tg;
 if (tg) {
   try {
     tg.ready();
