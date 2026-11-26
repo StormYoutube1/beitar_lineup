@@ -405,13 +405,13 @@ function usedIds() {
 
 function openPicker(slot) {
   activeSlot = slot;
-  sheetTitle.textContent = "בחירת " + slot.label;
+  sheetTitle.textContent = slot.group === "GK" ? "בחירת שוער" : "בחירת שחקן";
   var current = assignments[slot.id];
   removeBtn.style.display = current ? "block" : "none";
   var used = usedIds();
   playerListEl.innerHTML = "";
   squad
-    .filter(function (p) { return p.position === slot.group; })
+    .filter(function (p) { return slot.group === "GK" ? p.position === "GK" : p.position !== "GK"; })
     .sort(function (a, b) { return a.number - b.number; })
     .forEach(function (p) {
       var row = document.createElement("button");
