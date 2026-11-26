@@ -530,9 +530,13 @@ fetch(AVAIL_URL + "?t=" + Date.now()).then(function (r) { return r.json(); }).th
   if (d && d.players) {
     availability = d.players;
     var n = Object.keys(availability).length;
-    if (n && d.opponent && d.date) {
+    if (d.opponent && d.date) {
       var parts = d.date.split("-");
-      statusEl.textContent = "⛔ " + n + " שחקנים לא זמינים למשחק מול " + d.opponent + " (" + parts[2] + "/" + parts[1] + ")";
+      if (n) {
+        statusEl.textContent = "⛔ " + n + " שחקנים לא זמינים למשחק מול " + d.opponent + " (" + parts[2] + "/" + parts[1] + ")";
+      } else {
+        statusEl.textContent = "המשחק הבא מול " + d.opponent + " (" + parts[2] + "/" + parts[1] + ")";
+      }
     }
   }
 }).catch(function () {});
