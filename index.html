@@ -189,9 +189,10 @@ header p { font-size: 14px; color: var(--muted); margin-top: 2px; }
   border: 1px solid var(--gold-dark); border-radius: 8px;
   padding: 2px 8px;
 }
-.player-row:disabled { opacity: 0.35; cursor: not-allowed; }
+.player-row:disabled { cursor: not-allowed; }
+.player-row:disabled img, .player-row:disabled .p-name, .player-row:disabled .p-num, .player-row:disabled .p-used { opacity: 0.35; }
 .player-row .p-used { font-size: 12px; color: var(--muted); }
-.player-row .p-out { font-size: 12px; color: #ff9d9d; white-space: nowrap; }
+.player-row .p-out { font-size: 12px; color: #ff9d9d; white-space: nowrap; opacity: 0.7; }
 .fallback { display: none; margin-top: 14px; }
 .fallback.open { display: block; }
 .fallback textarea {
